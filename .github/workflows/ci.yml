@@ -4,14 +4,15 @@ on:
   push:
     branches:
       - 'main'
-
+env:
+  DOCKER_BUILDKIT: 1
+  COMPOSE_DOCKER_CLI_BUILD: 1
+  
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        users: actions/checkout@v2
-      - name: Docker set up
-        run: |
-          docker-compose build 
-          docker-compose up 
+      - uses: actions/checkout@v2
+      - name: Docker compose build
+        id: docker-build
+        run: docker-compose build
