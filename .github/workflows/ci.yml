@@ -11,7 +11,7 @@ jobs:
     steps:
       - name: Checkout
         users: actions/checkout@v2
-     - name: Docker set up
+      - name: Docker set up
         run: |
           docker-compose build 
           docker-compose up 
