@@ -1,0 +1,17 @@
+name: Test CI
+
+on:
+  push:
+    branches:
+      - 'main'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        users: actions/checkout@v2
+     - name: Docker set up
+        run: |
+          docker-compose build 
+          docker-compose up 
