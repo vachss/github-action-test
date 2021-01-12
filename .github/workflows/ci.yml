@@ -16,3 +16,6 @@ jobs:
       - name: Docker compose build
         id: docker-build
         run: docker-compose build
+      - name: Docker compose run
+        id: docker-run
+        run: docker-compose run --rm
